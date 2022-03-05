@@ -47,7 +47,7 @@ resource "google_sql_database_instance" "this" {
   deletion_protection = "false"
 }
 
-resource "google_sql_user" "users" {
+resource "google_sql_user" "this" {
   name     = "wordpress"
   instance = google_sql_database_instance.this.name
   password = random_string.password.result
