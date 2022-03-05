@@ -10,7 +10,7 @@ resource "google_cloud_run_service" "this" {
   template {
     spec {
       containers {
-        image = "europe-west2-docker.pkg.dev/cloud-city-343110/wordpress/test:latest"
+        image = var.image
         env {
           name  = "WORDPRESS_DB_HOST"
           value = google_sql_database_instance.this.public_ip_address
