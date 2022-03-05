@@ -6,7 +6,7 @@ resource "random_string" "password" {
 
 resource "google_cloud_run_service" "this" {
   name     = var.name
-  location = local.gke_region
+  location = var.region
   template {
     spec {
       containers {
@@ -38,7 +38,7 @@ resource "google_cloud_run_service" "this" {
 
 resource "google_sql_database_instance" "this" {
   name             = var.name
-  region           = local.gke_region
+  region           = var.region
   database_version = "MYSQL_5_7"
   settings {
     tier = var.db_class
